@@ -17,10 +17,20 @@ namespace majo_library
         public string Title => _title;
         public string Author => _author;
         public int Copies => _totalCopies;
+        public int CopiesAvailable => _totalCopies - _copiesLent;
 
         public void AddCopy()
         {
             _totalCopies += 1;
+        }
+        public bool LendCopy()
+        {
+            if (CopiesAvailable > 0)
+            {
+                _copiesLent =+ 1;
+                return true;
+            }
+            return false;
         }
         public override bool Equals(object obj)
         {

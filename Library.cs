@@ -10,6 +10,8 @@ namespace majo_library
     {
         HashSet<BookData> _catalog;
         Dictionary<int, User> _userDatabase;
+        private BookData catalogBook;
+
         public Library()
         {
             _catalog = new HashSet<BookData>();
@@ -33,6 +35,18 @@ namespace majo_library
         {
             User u = new User();
             _userDatabase[u.Id] = u;
+        }
+
+        public bool LendBook(string title, string author, int id)
+        {
+            BookData s = new BookData(title, author);
+            _catalog.TryGetValue(s, out catalogBook);
+            if (_userDatabase.ContainsKey(id) && catalogBook.CopiesAvailable > 0)
+            {
+                catalogBook.LendCopy();
+                return true;
+            }
+            return false;
         }
     }
 }

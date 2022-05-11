@@ -6,19 +6,27 @@ using System.Threading.Tasks;
 
 namespace majo_library
 {
-    class Book
+    class BookData
     {
         string _title;
         string _author;
-        public Book(string title, string author) => (_title, _author) = (title, author);
+        int _totalCopies;
+        int _copiesLent;
+        public BookData(string title, string author) => (_title, _author, _totalCopies, _copiesLent) = (title, author, 1, 0);
 
         public string Title => _title;
         public string Author => _author;
+        public int Copies => _totalCopies;
+
+        public void AddCopy()
+        {
+            _totalCopies += 1;
+        }
         public override bool Equals(object obj)
         {
-            return obj is Book && Equals((Book)obj);
+            return obj is BookData && Equals((BookData)obj);
         }
-        public bool Equals(Book b)
+        public bool Equals(BookData b)
         {
             return _title == b.Title && _author == b.Author;
         }

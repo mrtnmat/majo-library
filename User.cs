@@ -8,5 +8,6 @@ namespace majo_library
 {
     class User
     {
+
     }
 }

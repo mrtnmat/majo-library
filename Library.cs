@@ -8,5 +8,10 @@ namespace majo_library
 {
     class Library
     {
+        HashSet<Book> _catalog;
+        public Library()
+        {
+            _catalog = new HashSet<Book>();
+        }
     }
 }

@@ -28,5 +28,11 @@ namespace majo_library
                 return _catalog.Add(b);
             }
         }
+
+        public bool AddUser()
+        {
+            User u = new User();
+            return _userDatabase.Add(u);
+        }
     }
 }

@@ -22,7 +22,7 @@ namespace majo_library
 
         public override bool Equals(object obj)
         {
-            return obj is User && this.Equals((User)obj);
+            return obj is User && Equals((User)obj);
         }
 
         public bool Equals(User u)

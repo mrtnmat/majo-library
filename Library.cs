@@ -9,7 +9,7 @@ namespace majo_library
     class Library
     {
         HashSet<BookData> _catalog;
-        HashSet<User> _userDatabase;
+        Dictionary<int, User> _userDatabase;
         public Library()
         {
             _catalog = new HashSet<BookData>();
@@ -29,10 +29,10 @@ namespace majo_library
             }
         }
 
-        public bool AddUser()
+        public void AddUser()
         {
             User u = new User();
-            return _userDatabase.Add(u);
+            _userDatabase[u.Id] = u;
         }
     }
 }

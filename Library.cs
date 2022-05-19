@@ -8,38 +8,37 @@ namespace majo_library
 {
     class Library
     {
-        HashSet<Book> _catalog;
-        HashSet<User> _userDatabase;
-        public List<Book> Catalog => _catalog.ToList();
+        Dictionary<Book, Book> _catalog;
+        Dictionary<User, User> _userDatabase;
+        public Dictionary<Book, Book> Catalog => _catalog;
 
         public Library()
         {
-            _catalog = new HashSet<Book>();
+            _catalog = new ();
+            _userDatabase = new();
         }
 
-        public bool AddBook(Book b)
+        public void AddBook(Book b)
         {
-            if (_catalog.TryGetValue(b, out Book updatedBook))
+            
+            if (_catalog.ContainsKey(b))
             {
-                _catalog.Remove(b);
-                updatedBook.AddCopy();
-                return _catalog.Add(updatedBook);
+                _catalog[b] = _catalog[b].AddCopy();
             }
             else
             {
-                return _catalog.Add(b);
+                _catalog[b] = b;
             }
         }
 
         public void AddUser(User u)
         {
-            _userDatabase.Add(u);
+            _userDatabase[u] = u;
         }
 
-        public bool LendBook(string title, string author, int id)
+        public bool LendBook(Book b, User u)
         {
-            Book s = new(title, author);
-            _catalog.TryGetValue(s, out Book catalogBook);
+            _catalog.TryGetValue(b, out Book catalogBook);
             if (_userDatabase.ContainsKey(id) && catalogBook.CopiesAvailable > 0)
             {
                 catalogBook.LendCopy();

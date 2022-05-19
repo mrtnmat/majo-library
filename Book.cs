@@ -19,9 +19,10 @@ namespace majo_library
         public int Copies => _totalCopies;
         public int CopiesAvailable => _totalCopies - _copiesLent;
 
-        public void AddCopy()
+        public Book AddCopy()
         {
             _totalCopies += 1;
+            return this;
         }
         public bool LendCopy()
         {

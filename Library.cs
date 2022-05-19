@@ -38,12 +38,6 @@ namespace majo_library
 
         public bool LendBook(Book b, User u)
         {
-            _catalog.TryGetValue(b, out Book catalogBook);
-            if (_userDatabase.ContainsKey(id) && catalogBook.CopiesAvailable > 0)
-            {
-                catalogBook.LendCopy();
-                return true;
-            }
             return false;
         }
     }

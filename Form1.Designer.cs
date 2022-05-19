@@ -44,7 +44,7 @@ namespace majo_library
             this.dgvBooks.Name = "dgvBooks";
             this.dgvBooks.ReadOnly = true;
             this.dgvBooks.RowTemplate.Height = 25;
-            this.dgvBooks.Size = new System.Drawing.Size(240, 150);
+            this.dgvBooks.Size = new System.Drawing.Size(698, 150);
             this.dgvBooks.TabIndex = 0;
             // 
             // dgvUsers
@@ -52,11 +52,11 @@ namespace majo_library
             this.dgvUsers.AllowUserToAddRows = false;
             this.dgvUsers.AllowUserToDeleteRows = false;
             this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUsers.Location = new System.Drawing.Point(390, 36);
+            this.dgvUsers.Location = new System.Drawing.Point(41, 221);
             this.dgvUsers.Name = "dgvUsers";
             this.dgvUsers.ReadOnly = true;
             this.dgvUsers.RowTemplate.Height = 25;
-            this.dgvUsers.Size = new System.Drawing.Size(240, 150);
+            this.dgvUsers.Size = new System.Drawing.Size(698, 150);
             this.dgvUsers.TabIndex = 1;
             // 
             // Form1

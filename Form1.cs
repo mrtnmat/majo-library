@@ -16,9 +16,10 @@ namespace majo_library
         public Form1()
         {
             InitializeComponent();
-            lib.AddBook(new Book("autore", "titolo"));
+            lib.AddBook(new Book("Titolo", "Autore"));
+            lib.AddBook(new Book("Il libro del C#", "Grancesco Fagliardo"));
             dgvBooks.AutoGenerateColumns = true;
-            dgvBooks.DataSource = lib.Catalog;
+            dgvBooks.DataSource = lib.Catalog.Values.ToList();
         }
     }
 }

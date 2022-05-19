@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace majo_library
 {
-    class BorrowRecord
+    class UserBook
     {
         User _user;
-        BookData _book;
+        Book _book;
 
         public User Lendee => _user;
-        public BookData BookLent => _book;
+        public Book BookLent => _book;
 
-        public bool Equals(BorrowRecord p)
+        public bool Equals(UserBook p)
         {
             return p.Lendee == Lendee && p.BookLent == BookLent;
         }

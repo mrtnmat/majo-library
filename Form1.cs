@@ -12,10 +12,13 @@ namespace majo_library
 {
     public partial class Form1 : Form
     {
+        Library lib = new();
         public Form1()
         {
             InitializeComponent();
+            lib.AddBook(new Book("autore", "titolo"));
+            dgvBooks.AutoGenerateColumns = true;
+            dgvBooks.DataSource = lib.Catalog;
         }
-
     }
 }

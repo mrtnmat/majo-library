@@ -11,6 +11,11 @@ namespace majo_library
         static int _increment = 0;
 
         readonly int _id;
+        string _name, _surname, _phoneNumber;
+
+        public string Name => _name;
+        public string Surname => _surname;
+        public string PhoneNumber => _phoneNumber;
 
         public int Id => _id;
 
@@ -20,19 +25,14 @@ namespace majo_library
             _increment++;
         }
 
-        public override bool Equals(object obj)
-        {
-            return obj is User && Equals((User)obj);
-        }
-
         public bool Equals(User u)
         {
-            return _id == u.Id;
+            return _name == u.Name && _surname == u.Surname && _phoneNumber == u.PhoneNumber;
         }
 
         public override int GetHashCode()
         {
-            return _id;
+            return (_name + _surname + _phoneNumber).GetHashCode();
         }
     }
 }
